@@ -10,7 +10,8 @@ let gameBy = parseInt(document.getElementById('game-of-select').value);
 let upArrowPressed = false;
 let downArrowPressed = false;
 let gamePaused = false;
-let muteSound = false
+let muteSound = false;
+let tempInterval = null;
 
 const net = {
     x: canvas.width / 2 - netWidth / 2,
@@ -50,6 +51,23 @@ const ball = {
 
 window.addEventListener('keydown', keyDownHandler);
 window.addEventListener('keyup', keyUpHandler);
+
+function handleControlButtonMouseDown(direction) {
+    if (direction === 'up') {
+        upArrowPressed = true;
+    } else {
+        downArrowPressed = true;
+    }
+    gameLoop();
+}
+
+function handleControlButtonMouseUp(direction) {
+    if (direction === 'up') {
+        upArrowPressed = false;
+    } else {
+        downArrowPressed = false;
+    }
+}
 
 function pauseGame() {
     gamePaused = !gamePaused;
@@ -103,43 +121,43 @@ function drawBall(x, y, radius, color) {
 }
 
 function keyDownHandler(event) {
-  switch (event.keyCode) {
-    case 38:
-        upArrowPressed = true;
-        break;
-    case 40:
-        downArrowPressed = true;
-        break;
-    case 77:
-        muteGame();
-        break;
-    case 80:
-        pauseGame();
-        break;
-    case 13:
-        pauseGame();
-        break;
-    case 27:
-        pauseGame();
-        break;
-    case 32:
-        pauseGame();
-        break;
-    case 82:
-        restartGame();
-        break;
-  }
+    switch (event.keyCode) {
+        case 38:
+            upArrowPressed = true;
+            break;
+        case 40:
+            downArrowPressed = true;
+            break;
+        case 77:
+            muteGame();
+            break;
+        case 80:
+            pauseGame();
+            break;
+        case 13:
+            pauseGame();
+            break;
+        case 27:
+            pauseGame();
+            break;
+        case 32:
+            pauseGame();
+            break;
+        case 82:
+            restartGame();
+            break;
+    }
 }
 
 function keyUpHandler(event) {
-  switch (event.keyCode) {
-    case 38:
-        upArrowPressed = false;
-        break;
-    case 40:
-        downArrowPressed = false;
-        break;
-  }
+    switch (event.keyCode) {
+        case 38:
+            upArrowPressed = false;
+            break;
+        case 40:
+            downArrowPressed = false;
+            break;
+    }
 }
 
 function collisionDetect(player, ball) {
