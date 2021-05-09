@@ -32,10 +32,10 @@
     </div>
     <div class='game-box' id='game-box'>
         <div class='control-button-box' id='control-button-box'>
-            <button class='control-button' id='up-button' onmousedown="handleControlButtonMouseDown('up')" onmouseup="handleControlButtonMouseUp('up')">
+            <button class='control-button' id='up-button' ontouchstart="handleTouchStart('up')" ontouchend="handleTouchEnd('up')">
                 <i class='fas fa-arrow-circle-up control-button-icon'></i>
             </button>
-            <button class='control-button' id='down-button' onmousedown="handleControlButtonMouseDown('down')" onmouseup="handleControlButtonMouseUp('down')">
+            <button class='control-button' id='down-button' ontouchstart="handleTouchStart('down')" ontouchend="handleTouchEnd('down')">
                 <i class='fas fa-arrow-circle-down control-button-icon'></i>
             </button>
         </div>
