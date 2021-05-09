@@ -11,7 +11,6 @@ let upArrowPressed = false;
 let downArrowPressed = false;
 let gamePaused = false;
 let muteSound = false;
-let tempInterval = null;
 
 const net = {
     x: canvas.width / 2 - netWidth / 2,
@@ -52,16 +51,15 @@ const ball = {
 window.addEventListener('keydown', keyDownHandler);
 window.addEventListener('keyup', keyUpHandler);
 
-function handleControlButtonMouseDown(direction) {
+function handleTouchStart(direction) {
     if (direction === 'up') {
         upArrowPressed = true;
     } else {
         downArrowPressed = true;
     }
-    gameLoop();
 }
 
-function handleControlButtonMouseUp(direction) {
+function handleTouchEnd(direction) {
     if (direction === 'up') {
         upArrowPressed = false;
     } else {
