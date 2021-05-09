@@ -53,10 +53,12 @@ window.addEventListener('keyup', keyUpHandler);
 
 function pauseGame() {
     gamePaused = !gamePaused;
+    document.getElementById('pause-button').innerHTML = `${gamePaused? 'Unpause': 'Pause'}`;
 }
 
 function muteGame() {
     muteSound = !muteSound;
+    document.getElementById('mute-button').innerHTML = `${muteSound? 'Unmute': 'Mute'}`;
 }
 
 function restartGame() {
@@ -67,6 +69,13 @@ function restartGame() {
     ai.x = canvas.width - (paddleWidth + 10);
     ai.y = canvas.height / 2 - paddleHeight / 2; 
     reset();
+}
+
+function changeGameBy() {
+    gameBy = parseInt(document.getElementById('game-of-select').value);
+    restartGame();
+    document.getElementById('game-of-select').blur();
+    document.getElementById('canvas').focus();   
 }
 
 function drawNet() {
@@ -158,7 +167,6 @@ function reset() {
 function update() {
     ball.x += ball.velocityX;
     ball.y += ball.velocityY;
-    console.log(gameBy);
     if (user.score===gameBy || ai.score===gameBy) {
         alert(`${user.score===gameBy? 'User': 'CPU'} won the game.`);
         restartGame();

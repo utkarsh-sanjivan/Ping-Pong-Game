@@ -1,6 +1,7 @@
 * {
     padding: 0;
     margin: 0;
+    overflow: hidden;
     
 }
 body {
@@ -53,6 +54,12 @@ body {
     transform: translateY(-1em);
     color: #fff;
     border: 2px solid #ef8f6e;
+}
+
+.icon-class {
+    background: -webkit-linear-gradient(#ef6eae, #ef8f6e);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .game-of-select {
