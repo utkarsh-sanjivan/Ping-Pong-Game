@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./style.css" type="text/css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/78438d3506.js" crossorigin="anonymous"></script>
+    <title>Ping Pong</title>
+  </head>
+  <body>
+    <audio id='hitSound'>
+        <source src='./sounds/hitSound.wav' type='audio/wav'>
+    </audio>
+    <audio id='scoreSound'>
+        <source src='./sounds/scoreSound.wav' type='audio/wav'>
+    </audio>
+    <div class='button-box' id='button-box'>
+        <button class='game-button' id='pause-button' onclick='pauseGame()'>Pause</button>
+        <button class='game-button' id='restart-button' onclick='restartGame()'>Restart</button>
+        <button class='game-button' id='mute-button' onclick='muteGame()'>Mute</button>
+        <!-- <select class='game-level-select' name="game-level-select" id="game-level-select">
+            <option class='board-size-option' value="1" selected>Easy</option>
+            <option class='board-size-option' value="2">Medium</option>
+            <option class='board-size-option' value="3">Hard</option>
+        </select> -->
+        <select class='game-of-select' name="game-of-select" id="game-of-select">
+            <option class='board-size-option' id='board-size-option' value="15" selected>15</option>
+            <option class='board-size-option' id='board-size-option' value="21">21</option>
+            <option class='board-size-option' id='board-size-option' value="31">31</option>
+            <option class='board-size-option' id='board-size-option' value="51">51</option>
+        </select>
+    </div>
+    <div class='game-box' id='game-box'>
+        <div class='control-button-box' id='control-button-box'>
+            <button class='control-button' id='up-button'>
+                <i class='fas fa-arrow-circle-up control-button-icon'></i>
+            </button>
+            <button class='control-button' id='down-button'>
+                <i class='fas fa-arrow-circle-down control-button-icon'></i>
+            </button>
+        </div>
+        <canvas id="canvas" width="600" height="400"></canvas>
+    </div>
+
+    <script type="text/javascript" src="js/script.js"></script>
+  </body>
+</html>
